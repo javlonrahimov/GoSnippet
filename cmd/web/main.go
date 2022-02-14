@@ -20,6 +20,10 @@ type Config struct {
 	StaticDir string
 }
 
+type contextKey string
+
+const contextKeyIsAuthenticated = contextKey("isAuthenticated")
+
 type application struct {
 	errorLog      *log.Logger
 	infoLog       *log.Logger
@@ -55,6 +59,7 @@ func main() {
 	session := sessions.New([]byte(*secret))
 	session.Lifetime = 12 * time.Hour
 	session.Secure = true
+	session.SameSite = http.SameSiteStrictMode
 
 	app := application{
 		errorLog:      errorLog,
