@@ -24,6 +24,6 @@ type User struct {
 	Name           string
 	Email          string
 	HashedPassword string
-	Created        string
+	Created        time.Time
 	Active         bool
 }
