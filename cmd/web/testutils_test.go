@@ -87,4 +87,3 @@ func extractCSRFToken(t *testing.T, body []byte) string {
 	}
 	return html.UnescapeString(string(matches[1]))
 }
-
