@@ -162,3 +162,7 @@ func (app *application) createSnippet(w http.ResponseWriter, r *http.Request) {
 func ping(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("OK"))
 }
+
+func (app *application) about(w http.ResponseWriter, r *http.Request) {
+	app.render(w, r, "about.page.tmpl", nil)
+}
